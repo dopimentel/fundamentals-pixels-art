@@ -38,3 +38,15 @@ function fillPixel(event) {
 for (let index = 0; index < pixels.length; index += 1) {
   pixels[index].addEventListener('click', fillPixel);
 }
+const clearBoard = bodyElement.appendChild(document.createElement('input'));
+clearBoard.id = 'clear-board';
+clearBoard.type = 'button';
+clearBoard.value = 'Limpar';
+clearBoard.innerText = 'Limpar';
+bodyElement.insertBefore(clearBoard, bodyElement.children[3]);
+function clearPixels() {
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].style.backgroundColor = 'white';
+  }
+}
+clearBoard.addEventListener('click', clearPixels);
