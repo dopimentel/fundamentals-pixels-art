@@ -17,5 +17,24 @@ for (let index = 0; index < 25; index += 1) {
   const pixel = pixelBoard.appendChild(document.createElement('div'));
   pixel.className = 'pixel';
 }
-let selected = document.querySelector('.color');
+const selected = document.querySelector('.color');
 selected.classList.add('selected');
+function colorSelector(event) {
+  const selectedColor = document.querySelector('.selected');
+  selectedColor.classList.remove('selected');
+  event.target.classList.add('selected');
+}
+const colors = document.getElementsByClassName('color');
+for (let index = 0; index < colors.length; index += 1) {
+  colors[index].addEventListener('click', colorSelector);
+}
+
+const pixels = document.getElementsByClassName('pixel');
+
+function fillPixel(event) {
+  const pixel = event.target;
+  pixel.style.backgroundColor = document.querySelector('.selected').style.backgroundColor;
+}
+for (let index = 0; index < pixels.length; index += 1) {
+  pixels[index].addEventListener('click', fillPixel);
+}
