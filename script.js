@@ -1,15 +1,19 @@
-let bodyElement = document.querySelector('body');
-let elementDiv = document.createElement('div');
-bodyElement.appendChild(elementDiv);
-elementDiv.id = 'color-palette';
-elementDiv = document.getElementById('color-palette');
-for (index = 0; index < 4; index += 1) {
-    let divColor = document.createElement('div')
-    elementDiv.appendChild(divColor);
-    divColor.classList.add('color');
+const bodyElement = document.querySelector('body');
+const colorPalette = bodyElement.appendChild(document.createElement('div'));
+colorPalette.id = 'color-palette';
+for (let index = 0; index < 4; index += 1) {
+  const color = colorPalette.appendChild(document.createElement('div'));
+  color.classList.add('color');
 }
-let divColor = document.getElementsByClassName('color');
-divColor[0].style.backgroundColor = 'black';
-divColor[1].style.backgroundColor = 'red';
-divColor[2].style.backgroundColor = 'blue';
-divColor[3].style.backgroundColor = 'green';
+const color = document.getElementsByClassName('color');
+color[0].style.backgroundColor = 'black';
+color[1].style.backgroundColor = 'red';
+color[2].style.backgroundColor = 'blue';
+color[3].style.backgroundColor = 'green';
+
+const pixelBoard = bodyElement.appendChild(document.createElement('div'));
+pixelBoard.id = 'pixel-board';
+for (let index = 0; index < 25; index += 1) {
+  const pixel = pixelBoard.appendChild(document.createElement('div'));
+  pixel.className = 'pixel';
+}
