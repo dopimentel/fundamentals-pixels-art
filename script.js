@@ -17,3 +17,5 @@ for (let index = 0; index < 25; index += 1) {
   const pixel = pixelBoard.appendChild(document.createElement('div'));
   pixel.className = 'pixel';
 }
+let selected = document.querySelector('.color');
+selected.classList.add('selected');
