@@ -1,0 +1,14 @@
+body {}
+
+#color-palette {
+    display: flex;
+    height: 40px;
+    width: 40px;
+};
+.color {
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+    margin: 2px;
+    padding: 15px;
+}
