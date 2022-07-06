@@ -14,10 +14,16 @@ color[3].style.backgroundColor = 'green';
 const pixelBoard = bodyElement.appendChild(document.createElement('div'));
 pixelBoard.id = 'pixel-board';
 
+function fillPixel(event) {
+  const pixel = event.target;
+  pixel.style.backgroundColor = document.querySelector('.selected').style.backgroundColor;
+}
+
 function pixelFrame(num) {
   for (let index = 0; index < num ** 2; index += 1) {
     const pixel = pixelBoard.appendChild(document.createElement('div'));
     pixel.className = 'pixel';
+    pixel.addEventListener('click', fillPixel);
   }
 }
 pixelFrame(5);
@@ -34,21 +40,14 @@ for (let index = 0; index < colors.length; index += 1) {
   colors[index].addEventListener('click', colorSelector);
 }
 
-const pixels = document.getElementsByClassName('pixel');
-
-function fillPixel(event) {
-  const pixel = event.target;
-  pixel.style.backgroundColor = document.querySelector('.selected').style.backgroundColor;
-}
-for (let index = 0; index < pixels.length; index += 1) {
-  pixels[index].addEventListener('click', fillPixel);
-}
 const btnLimpar = bodyElement.appendChild(document.createElement('input'));
 btnLimpar.id = 'clear-board';
 btnLimpar.type = 'button';
 btnLimpar.value = 'Limpar';
 btnLimpar.innerText = 'Limpar';
 bodyElement.insertBefore(btnLimpar, bodyElement.children[3]);
+const pixels = document.getElementsByClassName('pixel');
+
 function clearPixels() {
   for (let index = 0; index < pixels.length; index += 1) {
     pixels[index].style.backgroundColor = 'white';
