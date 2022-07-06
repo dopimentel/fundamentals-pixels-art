@@ -77,6 +77,8 @@ function boderGenerate() {
       pixelBoard.removeChild(pixelBoard.lastChild);
     }
     pixelFrame(parseInt(borderSize.value, 10));
+
+    pixelBoard.style.width = `${parseInt(borderSize.value, 10) * 43}px`;
   }
 }
 btnVqv.addEventListener('click', boderGenerate);
