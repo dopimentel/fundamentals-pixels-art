@@ -13,10 +13,15 @@ color[3].style.backgroundColor = 'green';
 
 const pixelBoard = bodyElement.appendChild(document.createElement('div'));
 pixelBoard.id = 'pixel-board';
-for (let index = 0; index < 25; index += 1) {
-  const pixel = pixelBoard.appendChild(document.createElement('div'));
-  pixel.className = 'pixel';
+
+function pixelFrame(num) {
+  for (let index = 0; index < num ** 2; index += 1) {
+    const pixel = pixelBoard.appendChild(document.createElement('div'));
+    pixel.className = 'pixel';
+  }
 }
+pixelFrame(5);
+
 const selected = document.querySelector('.color');
 selected.classList.add('selected');
 function colorSelector(event) {
@@ -67,6 +72,11 @@ bodyElement.insertBefore(borderSize, bodyElement.children[3]);
 function boderGenerate() {
   if (Number.isNaN(parseInt(borderSize.value, 10))) {
     alert('Board inválido!');
+  } else {
+    while (pixelBoard.children.length > 0) {
+      pixelBoard.removeChild(pixelBoard.lastChild);
+    }
+    pixelFrame(parseInt(borderSize.value, 10));
   }
 }
 btnVqv.addEventListener('click', boderGenerate);
