@@ -38,15 +38,35 @@ function fillPixel(event) {
 for (let index = 0; index < pixels.length; index += 1) {
   pixels[index].addEventListener('click', fillPixel);
 }
-const clearBoard = bodyElement.appendChild(document.createElement('input'));
-clearBoard.id = 'clear-board';
-clearBoard.type = 'button';
-clearBoard.value = 'Limpar';
-clearBoard.innerText = 'Limpar';
-bodyElement.insertBefore(clearBoard, bodyElement.children[3]);
+const btnLimpar = bodyElement.appendChild(document.createElement('input'));
+btnLimpar.id = 'clear-board';
+btnLimpar.type = 'button';
+btnLimpar.value = 'Limpar';
+btnLimpar.innerText = 'Limpar';
+bodyElement.insertBefore(btnLimpar, bodyElement.children[3]);
 function clearPixels() {
   for (let index = 0; index < pixels.length; index += 1) {
     pixels[index].style.backgroundColor = 'white';
   }
 }
-clearBoard.addEventListener('click', clearPixels);
+btnLimpar.addEventListener('click', clearPixels);
+
+const btnVqv = bodyElement.appendChild(document.createElement('input'));
+btnVqv.id = 'generate-board';
+btnVqv.type = 'button';
+btnVqv.value = 'VQV';
+btnVqv.innerText = 'VQV';
+bodyElement.insertBefore(btnVqv, bodyElement.children[3]);
+
+const borderSize = bodyElement.appendChild(document.createElement('input'));
+borderSize.id = 'board-size';
+borderSize.type = 'number';
+borderSize.min = '1';
+bodyElement.insertBefore(borderSize, bodyElement.children[3]);
+
+function boderGenerate() {
+  if (Number.isNaN(parseInt(borderSize.value, 10))) {
+    alert('Board inválido!');
+  }
+}
+btnVqv.addEventListener('click', boderGenerate);
