@@ -8,11 +8,19 @@ for (let index = 0; index < 4; index += 1) {
   const color = colorPalette.appendChild(document.createElement('div'));
   color.classList.add('color');
 }
+
+function colorGenerate() {
+  const r = Math.floor(Math.random() * 255 + 1);
+  const g = Math.floor(Math.random() * 255 + 1);
+  const b = Math.floor(Math.random() * 255 + 1);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 const color = document.getElementsByClassName('color');
 color[0].style.backgroundColor = 'black';
-color[1].style.backgroundColor = 'red';
-color[2].style.backgroundColor = 'blue';
-color[3].style.backgroundColor = 'green';
+for (let index = 1; index < color.length; index += 1) {
+  color[index].style.backgroundColor = colorGenerate();
+}
 
 const pixelBoard = bodyElement.appendChild(document.createElement('div'));
 pixelBoard.id = 'pixel-board';
