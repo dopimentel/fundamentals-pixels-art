@@ -68,6 +68,16 @@ borderSize.type = 'number';
 borderSize.min = '1';
 bodyElement.insertBefore(borderSize, bodyElement.children[3]);
 
+function borderRange(param1) {
+  if (param1 <= 5) {
+    param1 = 5;
+  } else if (param1 >= 50) {
+    param1 = 50;
+  }
+  return param1;
+}
+borderRange();
+
 function boderGenerate() {
   if (Number.isNaN(parseInt(borderSize.value, 10))) {
     alert('Board inválido!');
@@ -75,6 +85,7 @@ function boderGenerate() {
     while (pixelBoard.children.length > 0) {
       pixelBoard.removeChild(pixelBoard.lastChild);
     }
+    borderSize.value = borderRange(borderSize.value);
     pixelFrame(parseInt(borderSize.value, 10));
 
     pixelBoard.style.width = `${parseInt(borderSize.value, 10) * 43}px`;
