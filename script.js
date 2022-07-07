@@ -1,4 +1,7 @@
 const bodyElement = document.querySelector('body');
+const elementH1 = bodyElement.appendChild(document.createElement('h1'));
+elementH1.id = 'title';
+elementH1.innerHTML = 'Paleta de Cores';
 const colorPalette = bodyElement.appendChild(document.createElement('div'));
 colorPalette.id = 'color-palette';
 for (let index = 0; index < 4; index += 1) {
