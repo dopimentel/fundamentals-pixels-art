@@ -66,18 +66,22 @@ function clearPixels() {
 }
 btnLimpar.addEventListener('click', clearPixels);
 
-const btnVqv = bodyElement.appendChild(document.createElement('input'));
+const containerBtnVqv = bodyElement.appendChild(document.createElement('div'));
+containerBtnVqv.id = 'container-vqv';
+bodyElement.insertBefore(containerBtnVqv, btnLimpar);
+
+const btnVqv = containerBtnVqv.appendChild(document.createElement('input'));
 btnVqv.id = 'generate-board';
 btnVqv.type = 'button';
 btnVqv.value = 'VQV';
 btnVqv.innerText = 'VQV';
-bodyElement.insertBefore(btnVqv, bodyElement.children[3]);
 
-const borderSize = bodyElement.appendChild(document.createElement('input'));
+const borderSize = containerBtnVqv.appendChild(document.createElement('input'));
 borderSize.id = 'board-size';
 borderSize.type = 'number';
 borderSize.min = '1';
-bodyElement.insertBefore(borderSize, bodyElement.children[3]);
+borderSize.size = '20';
+containerBtnVqv.insertBefore(borderSize, btnVqv);
 
 function borderRange(param1) {
   if (param1 <= 5) {

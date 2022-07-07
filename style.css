@@ -1,19 +1,52 @@
+* {
+  font-family: 'Press Start 2P', cursive;
+}
+
+h1 {
+  text-align: center;
+  background-color: aqua;
+}
+
+#container-vqv {
+  text-align: center;
+  margin: auto;
+}
+
+#board-size {
+  width: 100px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#clear-board {
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: 5px;
+}
+
 #color-palette {
   display: flex;
   height: auto;
-  width: auto;
+  width: 320px;
+  text-align: center;
+  margin: auto;
 }
 
 .color {
   border: 1px solid black;
+  border-radius: 50%;
   height: 40px;
   width: 40px;
-  margin: 2px;
   padding: 15px;
+  margin: 5px;
+  text-align: center;
 }
 
 #pixel-board {
   width: 215px;
+  margin: auto;
+  margin-top: 5px;
 }
 
 .pixel {
