@@ -70,9 +70,9 @@ bodyElement.insertBefore(borderSize, bodyElement.children[3]);
 
 function borderRange(param1) {
   if (param1 <= 5) {
-    param1 = 5;
-  } else if (param1 >= 50) {
-    param1 = 50;
+    return 5;
+  } if (param1 >= 50) {
+    return 50;
   }
   return param1;
 }
@@ -85,10 +85,10 @@ function boderGenerate() {
     while (pixelBoard.children.length > 0) {
       pixelBoard.removeChild(pixelBoard.lastChild);
     }
-    borderSize.value = borderRange(borderSize.value);
-    pixelFrame(parseInt(borderSize.value, 10));
+    pixelFrame(parseInt(borderRange(borderSize.value), 10));
 
-    pixelBoard.style.width = `${parseInt(borderSize.value, 10) * 43}px`;
+    pixelBoard.style.width = `${
+      parseInt(borderRange(borderSize.value), 10) * 43}px`;
   }
 }
 btnVqv.addEventListener('click', boderGenerate);
