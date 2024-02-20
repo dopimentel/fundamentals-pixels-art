@@ -93,7 +93,7 @@ function borderRange(param1) {
 }
 borderRange();
 
-function boderGenerate() {
+function borderGenerate() {
   if (Number.isNaN(parseInt(borderSize.value, 10))) {
     alert('Board inválido!');
   } else {
@@ -106,4 +106,4 @@ function boderGenerate() {
       parseInt(borderRange(borderSize.value), 10) * 43}px`;
   }
 }
-btnVqv.addEventListener('click', boderGenerate);
+btnVqv.addEventListener('click', borderGenerate);
